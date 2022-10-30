@@ -1,14 +1,22 @@
 package com.example.WorkOut.model.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Training {
-
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-
 	private String name;
-
 	private String program;
-
 	private String workoutLength;
+
+	public Training() {
+
+	}
 
 	public Training(long id, String name, String program, String workoutLength) {
 		super();
