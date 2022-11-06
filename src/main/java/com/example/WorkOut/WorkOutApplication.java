@@ -5,7 +5,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import com.example.WorkOut.model.domain.Training;
 import com.example.WorkOut.model.repository.TrainingRepository;
 
 @SpringBootApplication
@@ -19,9 +18,9 @@ public class WorkOutApplication {
 	public CommandLineRunner demo(TrainingRepository repository) {
 		return (args) -> {
 			// Your code...add some demo data to db
-			Training first = new Training(1, "Aki Hietamäki", "Golden Six", "46 min");
-			Training two = new Training(2, "Pekka Jokunen", "Yoga", "1 h");
-			Training three = new Training(3, "Tatu Toivonen", "Pilates", "2 y");
+			// Training first = new Training(1, "Aki Hietamäki", "Golden Six", "46 min");
+			// Training two = new Training(2, "Pekka Jokunen", "Yoga", "1 h");
+			// Training three = new Training(3, "Tatu Toivonen", "Pilates", "2 y");
 
 			// if (repository.findByName(first.getName()) == null) {
 			// repository.save(first);
@@ -37,5 +36,4 @@ public class WorkOutApplication {
 		};
 
 	}
-
 }

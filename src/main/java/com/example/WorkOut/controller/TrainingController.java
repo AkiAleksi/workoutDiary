@@ -45,4 +45,9 @@ public class TrainingController {
 		model.addAttribute("training", repository.findById(trainingId));
 		return "editTraining";
 	}
+
+	@RequestMapping(value = "/login")
+	public String login() {
+		return "login";
+	}
 }
