@@ -28,11 +28,11 @@ public class WorkOutApplication {
 			// }
 
 			// if (repository.findByName(two.getName()) == null) {
-			repository.save(two);
+			// repository.save(two);
 			// }
 
 			// if (repository.findByName(three.getName()) == null) {
-			repository.save(three);
+			// repository.save(three);
 			// }
 		};
 

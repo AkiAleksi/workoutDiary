@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Server Programming with Spring Boot</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+	crossorigin="anonymous">
+<!-- JavaScript Bundle with Popper -->
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+	crossorigin="anonymous"></script>
+</head>
+<body>
+
+	<!--<table class="table table-striped">-->
+		<h1>Edit training session information</h1>
+		<form th:object="${training}" th:action="@{../save}" action="#" method="post">
+			<input type="hidden" th:field="*{id}" class="form-control" /> 
+			
+			
+			<div class="form-group">
+			<label for="name">Name </label> 
+				<input style="width: 300px" id="name" class="form-control" type="text" th:field="*{name}" /> 
+			</div>
+			<div class="form-group">
+				<label for="program">Program </label>
+				<input style="width: 300px" type="text" class="form-control" id="program" th:field="*{program}" /> 
+				</div>
+				
+				<div class="form-group">
+				<label for="workoutLength">Length</label>
+				<input style="width: 300px" id="workoutLength" class="form-control" type="text" th:field="*{workoutLength}" />
+				</div>
+				
+			<br>
+			<input type="submit" class="btn btn-success" value="Save"></input> <input type="button" onClick="history.back()" class="btn btn-warning" value="Back">
+			
+			
+		</form>
+
+	<!--</table>  -->
+
+
+</body>
+
+</html>

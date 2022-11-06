@@ -13,12 +13,17 @@
 			<th>Name</th>
 			<th>program</th>
 			<th>Length</th>
+			<th>Delete</th>
+			<th>Edit</th>
 		</tr>
 		<tr th:each="training:${trainings}">
 			<td th:text="${training.name}"></td>
 			<td th:text="${training.program}"></td>
 			<td th:text="${training.workoutLength}"></td>
+			<td><a th:href="@{/delete/{id}(id=${training.id})}" class="btn btn-danger">Delete</a></td>
+			<td><a th:href="@{/edit/{id}(id=${training.id})}" class="btn btn-primary">Edit</a></td>
 		</tr>
 	</table>
+	<a href="/add" class="btn btn-success">Add a training session</a>
 </body>
 </html>

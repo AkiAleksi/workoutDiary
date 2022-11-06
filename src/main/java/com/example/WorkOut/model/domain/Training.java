@@ -14,10 +14,12 @@ public class Training {
 	private String program;
 	private String workoutLength;
 
+	// parametriton konstruktori
 	public Training() {
 
 	}
 
+	// parametrillinen konstruktori
 	public Training(long id, String name, String program, String workoutLength) {
 		super();
 		this.id = id;
@@ -26,6 +28,7 @@ public class Training {
 		this.workoutLength = workoutLength;
 	}
 
+	// getterit ja setterit
 	public long getId() {
 		return id;
 	}
