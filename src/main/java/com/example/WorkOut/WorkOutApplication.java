@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import com.example.WorkOut.model.repository.TrainingRepository;
+import com.example.WorkOut.model.repository.UserRepository;
 
 @SpringBootApplication
 public class WorkOutApplication {
@@ -15,8 +16,9 @@ public class WorkOutApplication {
 	}
 
 	@Bean
-	public CommandLineRunner demo(TrainingRepository repository) {
+	public CommandLineRunner demo(TrainingRepository repository, UserRepository urepository) {
 		return (args) -> {
+
 			// Your code...add some demo data to db
 			// Training first = new Training(1, "Aki Hietamäki", "Golden Six", "46 min");
 			// Training two = new Training(2, "Pekka Jokunen", "Yoga", "1 h");

@@ -46,8 +46,4 @@ public class TrainingController {
 		return "editTraining";
 	}
 
-	@RequestMapping(value = "/login")
-	public String login() {
-		return "login";
-	}
 }
