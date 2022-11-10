@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -15,9 +17,13 @@ public class Training implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
+	@NotEmpty
 	private String name;
+	@NotEmpty
 	private String program;
+	@NotEmpty
 	private String workoutLength;
+	@NotNull
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date date;
 	private String time;
