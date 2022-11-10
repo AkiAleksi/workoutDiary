@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
 <title>Server Programming</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -14,18 +13,23 @@
 			<th>Name</th>
 			<th>program</th>
 			<th>Length</th>
-			<th sec:authorize="hasAuthority('ADMIN')">Delete</th>
-			<th>Edit</th>
+			<th>Date</th>
+			<th>Time</th>
+			<th sec:authorize="hasAuthority('ROLE_ADMIN')">Delete</th>
+			<th sec:authorize="hasAuthority('ROLE_ADMIN')">Edit</th>
 		</tr>
 		<tr th:each="training:${trainings}">
 			<td th:text="${training.name}"></td>
 			<td th:text="${training.program}"></td>
 			<td th:text="${training.workoutLength}"></td>
-			<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/delete/{id}(id=${training.id})}" class="btn btn-danger">Delete</a></td>
-			<td><a th:href="@{/edit/{id}(id=${training.id})}" class="btn btn-primary">Edit</a></td>
+			<td th:text="${#dates.format(training.date, 'dd/MM/yyyy')}"></td>
+			<td th:text="${training.time}"></td>
+			<td sec:authorize="hasAuthority('ROLE_ADMIN')"><a th:href="@{/delete/{id}(id=${training.id})}" class="btn btn-danger">Delete</a></td>
+			<td sec:authorize="hasAuthority('ROLE_ADMIN')"><a th:href="@{/edit/{id}(id=${training.id})}" class="btn btn-primary">Edit</a></td>
 		</tr>
 	</table>
 	<a href="/add" class="btn btn-success">Add a training session</a>
+	<a sec:authorize="hasAuthority('ROLE_ADMIN')" href="/users" class="btn btn-success">Users</a>
 	<a th:href="@{/logout}" class="btn btn-success">Logout</a>
 </body>
 </html>
