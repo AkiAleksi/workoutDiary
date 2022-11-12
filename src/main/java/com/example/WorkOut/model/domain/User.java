@@ -34,6 +34,19 @@ public class User {
 					@JoinColumn(name = "role_id", referencedColumnName = "id") })
 	private List<Role> roles = new ArrayList<>();
 
+	public User() {
+
+	}
+
+	public User(Long id, String name, String email, String password, List<Role> roles) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.email = email;
+		this.password = password;
+		this.roles = roles;
+	}
+
 	public Long getId() {
 		return id;
 	}
