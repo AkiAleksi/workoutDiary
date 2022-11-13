@@ -14,19 +14,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.example.WorkOut.model.domain.Training;
-import com.example.WorkOut.model.domain.User;
 import com.example.WorkOut.model.repository.TrainingRepository;
 import com.example.WorkOut.model.repository.UserRepository;
 
 @Controller
 public class TrainingController {
-	
+
 	@Autowired
 	private TrainingRepository repository;
-	
+
 	@Autowired
 	private UserRepository urepository;
-	
 
 	@RequestMapping(value = { "/training" })
 	public String Training(Model model) {
@@ -34,20 +32,20 @@ public class TrainingController {
 		model.addAttribute("trainings", repository.findByEmail(auth.getName()));
 		return "training";
 	}
-	
+
 	@RequestMapping(value = { "/adminTraining" })
 	public String adminTraining(Model model) {
 		model.addAttribute("trainings", repository.findAll());
 		return "adminTraining";
 	}
-	
+
 	@RequestMapping(value = "/adminadd")
 	public String addTraining(Model model) {
 		model.addAttribute("users", urepository.findAll());
 		model.addAttribute("training", new Training());
 		return "adminadd";
 	}
-	
+
 	@RequestMapping(value = "/adminsave", method = RequestMethod.POST)
 	public String adminsave(@Valid Training training, BindingResult result, Model model) {
 		if (result.hasErrors()) {
@@ -59,7 +57,7 @@ public class TrainingController {
 
 	@RequestMapping(value = "/add")
 	public String addBook(Model model) {
-		
+
 		model.addAttribute("training", new Training());
 		return "addtraining";
 	}
@@ -81,7 +79,7 @@ public class TrainingController {
 		repository.deleteById(trainingId);
 		return "redirect:../training";
 	}
-	
+
 	@RequestMapping(value = "/admindelete/{id}", method = RequestMethod.GET)
 	@PreAuthorize("hasRole('ADMIN')")
 	public String deleteTrainingAdmin(@PathVariable("id") Long trainingId, Model model) {
@@ -94,12 +92,12 @@ public class TrainingController {
 		model.addAttribute("training", repository.findById(trainingId));
 		return "editTraining";
 	}
-	
+
 	@RequestMapping(value = "/adminedit/{id}")
 	public String editAdminTraining(@PathVariable("id") Long trainingId, Model model) {
 		model.addAttribute("users", urepository.findAll());
 		model.addAttribute("training", new Training());
-		//model.addAttribute("training", repository.findById(trainingId));
+		model.addAttribute("training", repository.findById(trainingId));
 		return "adminedit";
 	}
 
