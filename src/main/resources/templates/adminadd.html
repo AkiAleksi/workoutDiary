@@ -22,8 +22,8 @@
 			<div class="form-group">
 				<label for="email">Email</label> <select style="width: 300px"
 					id="catelist" th:field="*{email}" class="form-control">
-					<option th:each="training: ${trainings}"
-						th:value="${training.email}" th:text="${training.email}"></option>
+					<option th:each="user: ${users}"
+						th:value="${user.email}" th:text="${user.email}"></option>
 				</select> 
 
 			</div>

@@ -16,12 +16,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.example.WorkOut.model.domain.Training;
 import com.example.WorkOut.model.domain.User;
 import com.example.WorkOut.model.repository.TrainingRepository;
+import com.example.WorkOut.model.repository.UserRepository;
 
 @Controller
 public class TrainingController {
 	
 	@Autowired
 	private TrainingRepository repository;
+	
+	@Autowired
+	private UserRepository urepository;
 	
 
 	@RequestMapping(value = { "/training" })
@@ -39,7 +43,7 @@ public class TrainingController {
 	
 	@RequestMapping(value = "/adminadd")
 	public String addTraining(Model model) {
-		model.addAttribute("trainings", repository.findAll());
+		model.addAttribute("users", urepository.findAll());
 		model.addAttribute("training", new Training());
 		return "adminadd";
 	}
