@@ -27,7 +27,9 @@ public class Training implements Serializable {
 	@NotNull
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date date;
+	@NotEmpty
 	private String time;
+	@NotEmpty
 	private String email;
 
 	// parametriton konstruktori

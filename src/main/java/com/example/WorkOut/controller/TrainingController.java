@@ -49,6 +49,7 @@ public class TrainingController {
 	@RequestMapping(value = "/adminsave", method = RequestMethod.POST)
 	public String adminsave(@Valid Training training, BindingResult result, Model model) {
 		if (result.hasErrors()) {
+			model.addAttribute("users", urepository.findAll());
 			return "adminadd";
 		}
 		repository.save(training);
