@@ -94,5 +94,13 @@ public class TrainingController {
 		model.addAttribute("training", repository.findById(trainingId));
 		return "editTraining";
 	}
+	
+	@RequestMapping(value = "/adminedit/{id}")
+	public String editAdminTraining(@PathVariable("id") Long trainingId, Model model) {
+		model.addAttribute("users", urepository.findAll());
+		model.addAttribute("training", new Training());
+		//model.addAttribute("training", repository.findById(trainingId));
+		return "adminedit";
+	}
 
 }
