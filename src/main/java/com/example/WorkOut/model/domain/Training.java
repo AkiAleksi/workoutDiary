@@ -2,19 +2,15 @@ package com.example.WorkOut.model.domain;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 
 @Entity
 //@Where(condition = training.email=)
@@ -33,8 +29,6 @@ public class Training implements Serializable {
 	private Date date;
 	private String time;
 	private String email;
-	//@OneToMany(mappedBy="user")
-    //private User user;
 
 	// parametriton konstruktori
 	public Training() {
@@ -51,8 +45,8 @@ public class Training implements Serializable {
 		this.date = date;
 		this.time = time;
 		this.email = email;
-		
-		//this.user = user;
+
+		// this.user = user;
 	}
 
 	// getterit ja setterit
@@ -103,7 +97,7 @@ public class Training implements Serializable {
 	public void setTime(String time) {
 		this.time = time;
 	}
-	
+
 	public String getEmail() {
 		return email;
 	}
@@ -111,9 +105,5 @@ public class Training implements Serializable {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
-	
-	
-	
 
 }
