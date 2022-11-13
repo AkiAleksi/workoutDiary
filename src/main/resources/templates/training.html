@@ -24,8 +24,8 @@
 			<th>Length</th>
 			<th>Date</th>
 			<th>Time</th>
-			<th sec:authorize="hasAuthority('ROLE_ADMIN')">Delete</th>
-			<th sec:authorize="hasAuthority('ROLE_ADMIN')">Edit</th>
+			<th>Delete</th>
+			<th>Edit</th>
 		</tr>
 		<tr th:each="training:${trainings}">
 			<td th:text="${training.name}"></td>
@@ -33,13 +33,13 @@
 			<td th:text="${training.workoutLength}"></td>
 			<td th:text="${#dates.format(training.date, 'dd/MM/yyyy')}"></td>
 			<td th:text="${training.time}"></td>
-			<td sec:authorize="hasAuthority('ROLE_ADMIN')"><a
+			<td><a
 				th:href="@{/delete/{id}(id=${training.id})}" class="btn btn-danger">Delete</a></td>
-			<td sec:authorize="hasAuthority('ROLE_ADMIN')"><a
+			<td><a
 				th:href="@{/edit/{id}(id=${training.id})}" class="btn btn-primary">Edit</a></td>
 		</tr>
 	</table>
-	<a href="/add" class="btn btn-success">Add a training session</a>
+	<a href="/add" class="btn btn-success">New training session</a>
 	<a sec:authorize="hasAuthority('ROLE_ADMIN')" href="/users"
 		class="btn btn-success">Users</a>
 	<a sec:authorize="hasAuthority('ROLE_ADMIN')" href="/adminTraining"

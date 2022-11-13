@@ -28,15 +28,29 @@ public class TrainingController {
 	public String Training(Model model) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		model.addAttribute("trainings", repository.findByEmail(auth.getName()));
-		System.out.println(model);
 		return "training";
 	}
 	
 	@RequestMapping(value = { "/adminTraining" })
 	public String adminTraining(Model model) {
 		model.addAttribute("trainings", repository.findAll());
-		System.out.println(model);
 		return "adminTraining";
+	}
+	
+	@RequestMapping(value = "/adminadd")
+	public String addTraining(Model model) {
+		model.addAttribute("trainings", repository.findAll());
+		model.addAttribute("training", new Training());
+		return "adminadd";
+	}
+	
+	@RequestMapping(value = "/adminsave", method = RequestMethod.POST)
+	public String adminsave(@Valid Training training, BindingResult result, Model model) {
+		if (result.hasErrors()) {
+			return "adminadd";
+		}
+		repository.save(training);
+		return "redirect:adminTraining";
 	}
 
 	@RequestMapping(value = "/add")
