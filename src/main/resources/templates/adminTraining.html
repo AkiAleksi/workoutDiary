@@ -34,7 +34,7 @@
 			<td th:text="${#dates.format(training.date, 'dd/MM/yyyy')}"></td>
 			<td th:text="${training.time}"></td>
 			<td sec:authorize="hasAuthority('ROLE_ADMIN')"><a
-				th:href="@{/delete/{id}(id=${training.id})}" class="btn btn-danger">Delete</a></td>
+				th:href="@{/admindelete/{id}(id=${training.id})}" class="btn btn-danger">Delete</a></td>
 			<td sec:authorize="hasAuthority('ROLE_ADMIN')"><a
 				th:href="@{/edit/{id}(id=${training.id})}" class="btn btn-primary">Edit</a></td>
 		</tr>
@@ -42,8 +42,7 @@
 	<a href="/add" class="btn btn-success">Add a training session</a>
 	<a sec:authorize="hasAuthority('ROLE_ADMIN')" href="/users"
 		class="btn btn-success">Users</a>
-	<a sec:authorize="hasAuthority('ROLE_ADMIN')" href="/adminTraining"
-		class="btn btn-success">Clients</a>
-	<a th:href="@{/logout}" class="btn btn-success">Logout</a>
+	 <a sec:authorize="hasAuthority('ROLE_ADMIN')" href="/training"
+		class="btn btn-success">Own training sessions</a>
 </body>
 </html>

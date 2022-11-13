@@ -19,7 +19,7 @@ import com.example.WorkOut.model.repository.TrainingRepository;
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
 public class TrainingRepositoryTests {
-	@Autowired
+	/*@Autowired
 	private TrainingRepository trepository;
 
 	@Test
@@ -44,6 +44,6 @@ public class TrainingRepositoryTests {
 		trepository.delete(training);
 		List<Training> newTrainings = trepository.findByName("Laski Jaakko");
 		assertThat(newTrainings).hasSize(0);
-	}
+	}*/
 
 }
