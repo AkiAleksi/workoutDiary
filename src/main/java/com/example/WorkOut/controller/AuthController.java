@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.example.WorkOut.model.domain.User;
 import com.example.WorkOut.model.domain.UserDto;
 
+//Handles authentication related requests
 @Controller
 public class AuthController {
 
@@ -23,28 +24,27 @@ public class AuthController {
 		this.userService = userService;
 	}
 
-	// handler method to handle home page request
+	// handler method for home page request
 	@GetMapping("/index")
 	public String home() {
 		return "index";
 	}
 
-	// handler method to handle login request
+	// handler method for user login request
 	@GetMapping("/login")
 	public String login() {
 		return "login";
 	}
 
-	// handler method to handle user registration form request
+	// handler method for reqister form request
 	@GetMapping("/register")
 	public String showRegistrationForm(Model model) {
-		// create model object to store form data
 		UserDto user = new UserDto();
 		model.addAttribute("user", user);
 		return "register";
 	}
 
-	// handler method to handle user registration form submit request
+	// handler method for register user request
 	@PostMapping("/register/save")
 	public String registration(@Valid @ModelAttribute("user") UserDto userDto, BindingResult result, Model model) {
 		User existingUser = userService.findUserByEmail(userDto.getEmail());
@@ -62,7 +62,7 @@ public class AuthController {
 		return "redirect:/register?success";
 	}
 
-	// handler method to handle list of users
+	// handler method to userlist request
 	@GetMapping("/users")
 	public String users(Model model) {
 		List<UserDto> users = userService.findAllUsers();

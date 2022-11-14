@@ -20,6 +20,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 		this.userRepository = userRepository;
 	}
 
+	// Checks user from database
 	@Override
 	public UserDetails loadUserByUsername(String usernameOrEmail) throws UsernameNotFoundException {
 

@@ -15,6 +15,7 @@ public class UserDto {
 	@NotEmpty(message = "Password should be empty")
 	private String password;
 
+	// getterit ja setterit
 	public Long getId() {
 		return id;
 	}

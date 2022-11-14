@@ -13,6 +13,7 @@ import com.example.WorkOut.model.domain.UserDto;
 import com.example.WorkOut.model.repository.RoleRepository;
 import com.example.WorkOut.model.repository.UserRepository;
 
+// user methods
 @Service
 public class UserServiceImpl implements UserService {
 

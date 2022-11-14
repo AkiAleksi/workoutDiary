@@ -18,12 +18,11 @@ import com.example.WorkOut.model.repository.RoleRepository;
 public class RoleRepositoryTests {
 
 	@Autowired
-	private RoleRepository repository;
+	private RoleRepository roleRepositoryTest;
 
 	@Test
 	public void findByNameShouldReturnId() {
-		Role roles = repository.findByName("ROLE_ADMIN");
-		System.out.println(roles.getId());
+		Role roles = roleRepositoryTest.findByName("ROLE_ADMIN");
 		assertThat(roles.getId()).isEqualTo(1);
 	}
 

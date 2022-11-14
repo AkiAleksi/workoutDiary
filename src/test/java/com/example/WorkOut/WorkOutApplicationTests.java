@@ -15,15 +15,15 @@ import com.example.WorkOut.controller.TrainingController;
 @SpringBootTest
 public class WorkOutApplicationTests {
 	@Autowired
-	private TrainingController controller;
+	private TrainingController trainingControllerTest;
 
 	@Autowired
-	private AuthController controller2;
+	private AuthController authenticationControllerTest;
 
 	@Test
 	void contextLoads() throws Exception {
-		assertThat(controller).isNotNull();
-		assertThat(controller2).isNotNull();
+		assertThat(trainingControllerTest).isNotNull();
+		assertThat(authenticationControllerTest).isNotNull();
 	}
 
 }

@@ -13,7 +13,6 @@ import javax.validation.constraints.NotNull;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-//@Where(condition = training.email=)
 public class Training implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -29,15 +28,12 @@ public class Training implements Serializable {
 	private Date date;
 	@NotEmpty
 	private String time;
-	@NotEmpty
 	private String email;
 
-	// parametriton konstruktori
 	public Training() {
 
 	}
 
-	// parametrillinen konstruktori
 	public Training(long id, String name, String program, String workoutLength, Date date, String time, String email) {
 		super();
 		this.id = id;
@@ -48,7 +44,6 @@ public class Training implements Serializable {
 		this.time = time;
 		this.email = email;
 
-		// this.user = user;
 	}
 
 	// getterit ja setterit

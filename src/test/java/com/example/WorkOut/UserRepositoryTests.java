@@ -18,12 +18,11 @@ import com.example.WorkOut.model.repository.UserRepository;
 public class UserRepositoryTests {
 
 	@Autowired
-	private UserRepository repository;
+	private UserRepository userRepositoryTest;
 
 	@Test
 	public void findByEmailShouldReturnName() {
-		User users = repository.findByEmail("aki@hietamaki.org");
-		System.out.println(users.getName());
+		User users = userRepositoryTest.findByEmail("aki@hietamaki.org");
 		assertThat(users.getName()).isEqualTo("Aki Hietamäki");
 	}
 

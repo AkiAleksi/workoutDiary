@@ -17,6 +17,7 @@ import com.example.WorkOut.model.domain.Training;
 import com.example.WorkOut.model.repository.TrainingRepository;
 import com.example.WorkOut.model.repository.UserRepository;
 
+//Handles request for the main pages 
 @Controller
 public class TrainingController {
 
@@ -26,6 +27,7 @@ public class TrainingController {
 	@Autowired
 	private UserRepository urepository;
 
+	// handler method for training request
 	@RequestMapping(value = { "/training" })
 	public String Training(Model model) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -33,12 +35,14 @@ public class TrainingController {
 		return "training";
 	}
 
+	// handler method to admintraining request
 	@RequestMapping(value = { "/adminTraining" })
 	public String adminTraining(Model model) {
 		model.addAttribute("trainings", repository.findAll());
 		return "adminTraining";
 	}
 
+	// handler method to adminadd form request
 	@RequestMapping(value = "/adminadd")
 	public String addTraining(Model model) {
 		model.addAttribute("users", urepository.findAll());
@@ -46,6 +50,7 @@ public class TrainingController {
 		return "adminadd";
 	}
 
+	// handler method to adminsave request
 	@RequestMapping(value = "/adminsave", method = RequestMethod.POST)
 	public String adminsave(@Valid Training training, BindingResult result, Model model) {
 		if (result.hasErrors()) {
@@ -56,6 +61,7 @@ public class TrainingController {
 		return "redirect:adminTraining";
 	}
 
+	// handler method to add request
 	@RequestMapping(value = "/add")
 	public String addBook(Model model) {
 
@@ -63,17 +69,20 @@ public class TrainingController {
 		return "addtraining";
 	}
 
+	// handler method to save request
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public String save(@Valid Training training, BindingResult result, Model model) {
 		if (result.hasErrors()) {
+			System.out.println(result);
 			return "addtraining";
 		}
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		training.setEmail(auth.getName());
 		repository.save(training);
-		return "redirect:training";
+		return "redirect:/training";
 	}
 
+	// handler method to delete request
 	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
 	@PreAuthorize("hasRole('ADMIN')")
 	public String deleteTraining(@PathVariable("id") Long trainingId, Model model) {
@@ -81,6 +90,7 @@ public class TrainingController {
 		return "redirect:../training";
 	}
 
+	// handler method to admindelete request
 	@RequestMapping(value = "/admindelete/{id}", method = RequestMethod.GET)
 	@PreAuthorize("hasRole('ADMIN')")
 	public String deleteTrainingAdmin(@PathVariable("id") Long trainingId, Model model) {
@@ -88,12 +98,14 @@ public class TrainingController {
 		return "redirect:../adminTraining";
 	}
 
+	// handler method to edit request
 	@RequestMapping(value = "/edit/{id}")
 	public String editTraining(@PathVariable("id") Long trainingId, Model model) {
 		model.addAttribute("training", repository.findById(trainingId));
 		return "editTraining";
 	}
 
+	// handler method to adminedit request
 	@RequestMapping(value = "/adminedit/{id}")
 	public String editAdminTraining(@PathVariable("id") Long trainingId, Model model) {
 		model.addAttribute("users", urepository.findAll());
