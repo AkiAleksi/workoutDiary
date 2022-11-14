@@ -9,22 +9,22 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import com.example.WorkOut.model.domain.User;
-import com.example.WorkOut.model.repository.UserRepository;
+import com.example.WorkOut.model.domain.Role;
+import com.example.WorkOut.model.repository.RoleRepository;
 
 @ExtendWith(SpringExtension.class)
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-public class UserRepositoryTests {
+public class RoleRepositoryTests {
 
 	@Autowired
-	private UserRepository repository;
+	private RoleRepository repository;
 
 	@Test
 	public void findByEmailShouldReturnName() {
-		User users = repository.findByEmail("aki@hietamaki.org");
-		System.out.println(users.getName());
-		assertThat(users.getName()).isEqualTo("Aki Hietamäki");
+		Role roles = repository.findByName("ROLE_ADMIN");
+		System.out.println(roles.getId());
+		assertThat(roles.getId()).isEqualTo(1);
 	}
 
 }
