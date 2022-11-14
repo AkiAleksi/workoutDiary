@@ -21,7 +21,7 @@ public class RoleRepositoryTests {
 	private RoleRepository repository;
 
 	@Test
-	public void findByEmailShouldReturnName() {
+	public void findByNameShouldReturnId() {
 		Role roles = repository.findByName("ROLE_ADMIN");
 		System.out.println(roles.getId());
 		assertThat(roles.getId()).isEqualTo(1);
