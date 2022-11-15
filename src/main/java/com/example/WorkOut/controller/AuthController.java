@@ -54,7 +54,7 @@ public class AuthController {
 			return "register";
 		}
 		if (existingUser != null && existingUser.getEmail() != null && !existingUser.getEmail().isEmpty()) {
-			result.rejectValue("email", null, "There is already an account registered with the same email");
+			result.rejectValue("email", null, "There is another account registered with the same email");
 		}
 
 		userService.saveUser(userDto);

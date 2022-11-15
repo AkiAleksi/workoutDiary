@@ -11,6 +11,4 @@ public interface TrainingRepository extends CrudRepository<Training, Long> {
 
 	List<Training> findByEmail(String email);
 
-	Training findById(long id);
-
 }
