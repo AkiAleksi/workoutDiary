@@ -9,7 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.example.WorkOut.model.domain.User;
 import com.example.WorkOut.model.domain.UserDto;
@@ -45,7 +46,7 @@ public class AuthController {
 	}
 
 	// handler method for register user request
-	@PostMapping("/register/save")
+	@RequestMapping(value = "/register/save", method = RequestMethod.POST)
 	public String registration(@Valid @ModelAttribute("user") UserDto userDto, BindingResult result, Model model) {
 		User existingUser = userService.findUserByEmail(userDto.getEmail());
 		if (result.hasErrors()) {
