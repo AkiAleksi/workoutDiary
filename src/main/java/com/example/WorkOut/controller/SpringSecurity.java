@@ -18,7 +18,7 @@ public class SpringSecurity {
 		return new BCryptPasswordEncoder();
 	}
 
-	// configure SecurityFilterChain
+	// SecurityFilterChain
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		http.csrf().disable().authorizeRequests().antMatchers("/register/**").permitAll().antMatchers("/index")
