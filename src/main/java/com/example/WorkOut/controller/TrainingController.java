@@ -18,7 +18,7 @@ import com.example.WorkOut.model.repository.TrainingRepository;
 import com.example.WorkOut.model.repository.UserRepository;
 
 //Handles request for the main pages
-@PreAuthorize("isAuthenticated()")
+
 @Controller
 public class TrainingController {
 
@@ -83,12 +83,11 @@ public class TrainingController {
 	}
 
 	// handler method to delete request
-
 	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
 	public String deleteTraining(@PathVariable("id") Long trainingId, Model model) {
+
 		repository.deleteById(trainingId);
 		return "redirect:../training";
-
 	}
 
 	// handler method to admindelete request

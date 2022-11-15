@@ -8,5 +8,9 @@ import com.example.WorkOut.model.domain.Training;
 
 public interface TrainingRepository extends CrudRepository<Training, Long> {
 	List<Training> findByName(String name);
+
 	List<Training> findByEmail(String email);
+
+	Training findById(long id);
+
 }
