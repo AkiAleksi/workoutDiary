@@ -15,13 +15,13 @@
 			method="post">
 			
 			<div class="form-group">
-			<label for="name">Name</label> <input style="width: 300px" class="form-control" type="text" id="name"
+			<label for="name">Name of the trainee</label> <input style="width: 300px" class="form-control" type="text" id="name"
 				th:field="*{name}" /> 
 				<div class="alert alert-warning" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
 				</div>
 				
 				<div class="form-group">
-				<label for="program">Title</label> 
+				<label for="program">Program name</label> 
 				<input style="width: 300px" class="form-control" type="text" id="program" th:field="*{program}" /> 
 				<div class="alert alert-warning" th:if="${#fields.hasErrors('program')}" th:errors="*{program}"></div>
 				</div>
