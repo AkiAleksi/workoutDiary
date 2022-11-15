@@ -84,7 +84,6 @@ public class TrainingController {
 
 	// handler method to delete request
 	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
-	@PreAuthorize("hasRole('ADMIN')")
 	public String deleteTraining(@PathVariable("id") Long trainingId, Model model) {
 		repository.deleteById(trainingId);
 		return "redirect:../training";

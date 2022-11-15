@@ -23,8 +23,10 @@ public class SpringSecurity {
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		http.csrf().disable().authorizeRequests().antMatchers("/register/**").permitAll().antMatchers("/index")
 				.permitAll().antMatchers("/adminTraining").hasRole("ADMIN").antMatchers("/training").authenticated()
-				.antMatchers("/adminadd").hasRole("ADMIN").antMatchers("/adminedit").hasRole("ADMIN")
-				.antMatchers("/users").hasRole("ADMIN").and()
+				.antMatchers("/adminadd").hasRole("ADMIN").antMatchers("/add").authenticated()
+				.antMatchers("/adminedit/{id}").authenticated().antMatchers("/delete/{id}").authenticated()
+				.antMatchers("/edit/{id}").authenticated().antMatchers("/admindelete/{id}").authenticated()
+				.antMatchers("/adminedit").hasRole("ADMIN").antMatchers("/users").hasRole("ADMIN").and()
 				.formLogin(form -> form.loginPage("/login").loginProcessingUrl("/login").defaultSuccessUrl("/training")
 						.permitAll())
 				.logout(logout -> logout.logoutRequestMatcher(new AntPathRequestMatcher("/logout")).permitAll()
